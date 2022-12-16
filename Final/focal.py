@@ -38,18 +38,14 @@ def pad(img, h, w):
     dx = w//10
     dy = h//10
     pad = np.zeros((h + 2*dy, w + 2*dx), np.uint8)
-    #print(pad.shape)
     pad[dy:dy+h,dx:dx+w] = img
-    #print(pad[dy][dx])
     return pad
 
 
 def sum_lap(lap, h, w):
     dx = w//10
     dy = h//10
-    #print(lap.shape)
     lap_sum = np.zeros((h, w), np.uint32)
-    #print(2*dy+h, 2*dx+w)
     a = 0
     for x in range(dx, dx+w):
         if (x-dx)%(w//10) == 0:
