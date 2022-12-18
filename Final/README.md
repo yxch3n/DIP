@@ -57,13 +57,13 @@ matplotlib.pyplot<br>
 1. 操作介面，即為圖片本身
 2. 焦距對應的著色圖
 
-<img src="./md/md1.png" style="zoom:25%" /><img src="./md/md2.png" style="zoom:25%" />
+<img src="./md/md1.png" style="width:50%" /><img src="./md/md2.png" style="width:50%" />
 
 上圖為操作介面。<br>
 程式一開始預設會顯示焦距最近的圖片，如左圖所示，焦距在膠帶附近。<br>
 而在視窗中點擊接近白板的部分，焦距則會滑行移動至後方，如右圖所示。<br><br>
 
-<img src="./md/md3.png" style="zoom:50%" />
+<img src="./md/md3.png" style="width:100%" />
 
 上圖為焦距著色圖。<br>
 會根據不同焦距來對其進行著色，可視化以方便觀察。

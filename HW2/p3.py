@@ -76,11 +76,11 @@ def tttmean(img):
 
 
 if __name__ == "__main__":
-    img = cv2.imread("./images/Martian terrain.tif", cv2.IMREAD_GRAYSCALE)
-    img_size = img.shape
+    raw = cv2.imread("./images/Martian_terrain.tif", cv2.IMREAD_GRAYSCALE)
+    img_size = raw.shape
     print(img_size)
 
-    F = np.fft.fft2(img)
+    F = np.fft.fft2(raw)
     F = np.fft.fftshift(F)
     spectrum = 2 * np.log(np.abs(F))
 
@@ -95,6 +95,7 @@ if __name__ == "__main__":
     reject = reject * notch_reject_filter(0,img_size, 3, 102, 26)
     reject = reject * notch_reject_filter(0,img_size, 3, 124, -123)
     reject = reject * notch_reject_filter(0,img_size, 3, 127, 118)
+    #reject_circle = reject
     # Rectengle rejection
     reject = reject * notch_reject_filter(1,img_size, 122, 0, 125, 110)
     reject = reject * notch_reject_filter(1,img_size, 134, 0, 138, 96)
@@ -132,7 +133,7 @@ if __name__ == "__main__":
 
     #cv2.imwrite("./images/terrain_naive_noise.tif", denoise_img.astype(np.uint8))
     optimum_notch_img = naive_denoise_img - w * naive_noise_img 
-    cv2.imwrite("./images/optimum_restored.tif", optimum_notch_img.astype(np.uint8))
+    #cv2.imwrite("./images/optimum_restored.tif", optimum_notch_img.astype(np.uint8))
 
     plt.subplot(231),plt.imshow(spectrum, cmap = 'gray')
     plt.title('Ori Spectrum'),
@@ -143,7 +144,7 @@ if __name__ == "__main__":
     plt.subplot(233),plt.imshow(naive_noise_img, cmap = 'gray')
     plt.title('Naive noise'),
     plt.xticks([]), plt.yticks([])
-    plt.subplot(234),plt.imshow(img, cmap = 'gray')
+    plt.subplot(234),plt.imshow(raw, cmap = 'gray')
     plt.title('Original image'),
     plt.xticks([]), plt.yticks([])
     plt.subplot(235),plt.imshow(naive_denoise_img, cmap = 'gray')
