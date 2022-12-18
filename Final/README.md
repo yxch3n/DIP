@@ -35,7 +35,7 @@ matplotlib.pyplot<br>
 
 ## 運行時
 
-運行程式後會請使用者選擇123三種功能，由於前兩步驟會耗費不少時間，故可視使用者需求選擇要從哪個階段開始跑
+運行 **focal.py** 後會請使用者選擇123三種功能，由於前兩步驟會耗費不少時間，故可視使用者需求選擇要從哪個階段開始跑
 <br>
 1. 將 raw images 以焦距最近(1.jpg)的圖片為基準，進行縮放適配，用意是使兩者err不過大，在切換顯示時不會出現明顯斷層，並重新命名存進 ./images/adjust/，會在前綴補上 'adjust_'。<br><br>
 2. 從 ./images/adjust/ 讀取已經適配處理好的圖片，開始使用Laplacian和Local summation的方式統計各圖各點的 Laplacian 值總和，並將該結果存進 ./npy/。<br><br>
