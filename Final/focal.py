@@ -230,7 +230,8 @@ def refocus():
 
 # Showing and setting mouse event  
     param = [p, rgb, 0]
-    print('Done! Please check the pop-up windows.')
+    print('\nDone! Please check the pop-up windows.')
+    print('You can click on where you want the focus at.')
     print('Press any key in windows to quit.')
     cv2.namedWindow("image")
     cv2.setMouseCallback("image", on_EVENT_LBUTTONDOWN, param)
